@@ -1,0 +1,295 @@
+:root {
+  /* Light colors*/
+  --background: #ffff;
+  --input-background: #f8f8f8;
+  --input-area: #ffff;
+  --input-border: #d5d5d5;
+  --font: black;
+  --sun-bg: black;
+  --moon-bg: transparent;
+  --box-shadow: 0px 0.679525px 2.7181px rgba(0, 0, 0, 0.25);
+  --ok-color: #6db33f;
+  --tooltip-bg: #282c34;
+  --tooltip-font: #afadab;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter";
+  gap: 10px;
+  background-color: var(--background);
+  color: var(--font);
+}
+
+/* ----------- Light Dark BTN ----------- */
+
+#light-dark-switch {
+  display: flex;
+  height: 30px;
+  width: 60px;
+  border: 1px solid black;
+  align-self: flex-end;
+  margin-right: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#sun-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  border-radius: 5px 0 0 5px;
+  background-color: var(--sun-bg);
+}
+#moon-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  background-color: var(--moon-bg);
+  border-radius: 0 5px 5px 0;
+}
+
+/* ---------- Form ---------- */
+
+#container {
+  width: 293px;
+  height: 319px;
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 293px;
+  height: 319px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transition: transform 0.6s ease-in-out;
+}
+#login-form {
+  transform: translateX(-100%);
+  background-color: var(--input-area);
+}
+#register-form {
+  transform: translate(0%);
+  background-color: var(--input-area);
+}
+
+/*---------- Input ---------- */
+
+form input {
+  width: 251.42px;
+  background: var(--input-background);
+  height: 34.66px;
+  border-radius: 5px;
+  border: 0.679525px solid var(--input-border);
+  position: relative;
+  padding: 10px;
+  font-size: 16px;
+  color: var(--font);
+}
+label {
+  font-size: 12px;
+  font-weight: bold;
+}
+label span {
+  font-weight: 100;
+  color: red;
+}
+
+/* ---------- Password Visibility ---------- */
+
+.password-div {
+  position: relative;
+}
+
+.eye svg {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  height: 19px;
+  width: 22px;
+  cursor: pointer;
+}
+
+/* ---------- Submit Button ---------- */
+
+button {
+  width: 251.42px;
+  height: 33.65px;
+  background: #007aff;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover {
+  transition: 300ms;
+  opacity: 80%;
+}
+
+/* ---------- Sign in/Sign up ---------- */
+
+p {
+  font-size: 12px;
+  font-weight: 700;
+}
+p span {
+  margin-left: 13px;
+  font-weight: 400;
+  color: #208bff;
+  cursor: pointer;
+}
+p span:hover {
+  text-decoration: underline;
+  color: #208bff;
+}
+
+#invalid {
+  transition: 500ms;
+  display: none;
+  color: red;
+  font-size: 10px;
+}
+
+/* ---------- Tooltip ---------- */
+
+#info-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  height: 19px;
+  width: 22px;
+}
+.tooltip-section {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  height: 19px;
+  width: 22px;
+  cursor: pointer;
+}
+.tooltip-container {
+  position: relative;
+  right: 10px;
+  height: 19px;
+  display: inline;
+}
+.tooltip-section:hover .tooltip {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.tooltip {
+  z-index: 2;
+  position: absolute;
+  display: none;
+  bottom: 100%;
+  left: 50%;
+  border-radius: 6px;
+  width: 200px;
+  height: 30px;
+  margin-left: -150px;
+  color: afadab;
+  font-size: 16px;
+  cursor: default;
+  margin-bottom: 13px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--tooltip-bg);
+  opacity: 75%;
+}
+.tooltip::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  border-width: 7px;
+  border-style: solid;
+  border-color: var(--tooltip-bg) transparent transparent transparent;
+}
+.tooltip div {
+  color: var(--tooltip-font);
+  width: 50px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#A {
+  border-radius: 6px 0 0 6px;
+}
+#passwd-length {
+  border-radius: 0 6px 6px 0;
+}
+.ok {
+  background-color: var(--ok-color);
+  color: white !important;
+}
+
+/* ---------- Error messages ---------- */
+
+.password-container::after {
+  content: "Senha não atende os requisitos!";
+  color: red;
+  font-size: 12px;
+}
+.confirm-container::after {
+  content: "As senhas não coincidem!";
+  color: red;
+  font-size: 12px;
+}
+.wrong-password::after {
+  content: "Usuário/Senha Incorreto(s)!";
+  color: red;
+  font-size: 12px;
+}
+.unavailable-username::after {
+  content: "Nome de usuário indisponível!";
+  color: red;
+  font-size: 12px;
+}
+
+/* ---------- Modal ---------- */
+
+dialog img {
+  aspect-ratio: 1/1;
+  width: 120px;
+}
+dialog div {
+  font-weight: bold;
+}
+dialog:modal {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  margin: auto;
+  box-shadow: 0 0 1em rgb(0 0 0 / 0.3);
+  border: none;
+  border-radius: 6px;
+  padding: 20px;
+}
+#modal::backdrop {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}

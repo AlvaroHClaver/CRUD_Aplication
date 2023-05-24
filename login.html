@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <script src="./login.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>CRUD</title>
+  </head>
+  <body>
+    <section id="light-dark-switch">
+      <div id="sun-div"><img src="./assets/Sun.png" alt="sun" /></div>
+      <div id="moon-div"><img src="./assets/Moon.png" alt="moon" /></div>
+    </section>
+    <section id="avatar">
+      <img src="./assets/Male User.svg" alt="avatar" />
+    </section>
+    <dialog id="modal">
+      <img src="./assets/check-circle-svgrepo-com.svg" alt="" />
+      <div>Usuário Criado com Sucesso!</div>
+      <button id="close">Login</button>
+    </dialog>
+    <main id="container" data-theme="light">
+      <!-- Form Cadastro -->
+      <form id="register-form">
+        <div id="username-register-container">
+          <div>
+            <label for="register-usuario">Usuário<span>*</span></label
+            ><br />
+            <input type="text" name="username" id="register-usuario" />
+          </div>
+        </div>
+        <!-- Container do input de senha -->
+        <div id="pswd-container" class="form">
+          <div class="password-div">
+            <label for="register-password">Senha<span>*</span></label
+            ><br />
+            <input
+              type="password"
+              name="passowrd"
+              id="register-password"
+              maxlength="16"
+            /><br />
+            <!-- svg info id="info-icon" -->
+            <svg
+              id="info-icon"
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 7.00999V7M12 17L12 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <!-- Container do tooltip -->
+            <section class="tooltip-section">
+              <div class="tooltip-container">
+                <!-- Tooltip  -->
+                <div class="tooltip">
+                  <div id="A">A</div>
+                  <div id="a">a</div>
+                  <div id="numeros">0-9</div>
+                  <div id="especial">!&$</div>
+                  <div id="passwd-length">8+</div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <!-- Container do Confirmar senha -->
+        <div id="confirm-container">
+          <div>
+            <label for="confirm-password"
+              >Confirme sua Senha<span>*</span></label
+            ><br />
+            <input
+              type="password"
+              name="confirm-password"
+              id="confirm-password"
+              maxlength="16"
+            />
+          </div>
+        </div>
+
+        <button>Cadastrar</button>
+        <p>Já possui uma conta?<span id="entrar">Entrar</span></p>
+      </form>
+
+      <!-- Container formulário de login -->
+      <form id="login-form" class="form">
+        <!-- Container input Username -->
+        <div>
+          <label for="usuario">Usuário<span>*</span></label
+          ><br />
+          <input type="text" name="username" id="usuario" />
+        </div>
+        <!-- Container input senha -->
+        <div id="login-passwd-container">
+          <div class="password-div">
+            <label for="password">Senha<span>*</span></label
+            ><br />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              maxlength="16"
+            />
+            <!-- Container visibilidade de senha -->
+            <div class="eye" data-visibility="hidden">
+              <svg
+                width="800px"
+                height="800px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <button id="login-btn">Login</button>
+        <p>Não tem uma conta?<span id="criar-conta">Criar nova conta</span></p>
+      </form>
+    </main>
+  </body>
+</html>
